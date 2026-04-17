@@ -39,14 +39,14 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="text-foreground/60 text-lg mb-12 max-w-md"
             >
-              I'm always open to discussing new projects, creative ideas or 
+              I'm always open to discussing new projects, creative ideas or
               opportunities to be part of your visions.
             </motion.p>
 
             <div className="space-y-8">
               {[
-                { icon: Mail, label: "Email", value: "hello@mayank.dev", href: "mailto:hello@mayank.dev" },
-                { icon: MessageSquare, label: "WhatsApp", value: "+1 (555) 123-4567", href: "https://wa.me/15551234567" },
+                { icon: Mail, label: "Email", value: "FreelanzoSolutions@gmail.com", href: "mailto:hello@mayank.dev" },
+                { icon: MessageSquare, label: "WhatsApp", value: "+91 8950812350", href: "https://wa.me/15551234567" },
                 { icon: MapPin, label: "Location", value: "Remote / Worldwide", href: "#" },
               ].map((item, index) => (
                 <motion.a
@@ -134,7 +134,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-foreground/40 ml-1">
                   Message
-                  </label>
+                </label>
                 <textarea
                   rows={4}
                   placeholder="How can I help you?"
