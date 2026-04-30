@@ -81,9 +81,9 @@ export default function Footer() {
           <p className="text-foreground/40 text-xs flex items-center gap-1">
             © {currentYear} Freelanzo Solutions. All rights reserved.
           </p>
-         // <p className="text-foreground/40 text-xs flex items-center gap-1.5">
-          //  Crafted with <Heart className="w-3 h-3 text-red-500 fill-current" /> using Next.js & Tailwind
-         // </p>
+          <p className="text-foreground/40 text-xs flex items-center gap-1.5">
+            Crafted with <Heart className="w-3 h-3 text-red-500 fill-current" /> using Next.js & Tailwind
+          </p>
         </div>
       </div>
     </footer>
