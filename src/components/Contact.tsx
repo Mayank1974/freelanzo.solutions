@@ -45,8 +45,8 @@ export default function Contact() {
 
             <div className="space-y-8">
               {[
-                { icon: Mail, label: "Email", value: "FreelanzoSolutions@gmail.com", href: "mailto:hello@mayank.dev" },
-                { icon: MessageSquare, label: "WhatsApp", value: "+91 8950812350", href: "https://wa.me/15551234567" },
+                { icon: Mail, label: "Email", value: "FreelanzoSolutions@gmail.com", href: "mailto:freelanzosolutions@gmail.com" },
+                { icon: MessageSquare, label: "WhatsApp", value: "+91 8607112350", href: "https://wa.me/8607112350" },
                 { icon: MapPin, label: "Location", value: "Remote / Worldwide", href: "#" },
               ].map((item, index) => (
                 <motion.a
@@ -61,8 +61,7 @@ export default function Contact() {
                   <div className="p-4 bg-white/5 rounded-2xl group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
                     <item.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">
+                   <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">
                       {item.label}
                     </p>
                     <p className="text-xl font-medium group-hover:text-accent transition-colors">
