@@ -1,30 +1,50 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.03 250);
-  --color-brand-200: oklch(0.85 0.07 250);
-  --color-brand-300: oklch(0.75 0.12 250);
-  --color-brand-400: oklch(0.65 0.17 250);
-  --color-brand-500: oklch(0.55 0.22 250);
-  --color-brand-600: oklch(0.45 0.20 250);
-  --color-brand-700: oklch(0.35 0.17 250);
-  --color-brand-800: oklch(0.25 0.12 250);
-  --color-brand-900: oklch(0.15 0.07 250);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
 
-  --color-accent: oklch(0.7 0.2 300); /* Vibrant Purple/Cyan */
-  --color-accent-hover: oklch(0.8 0.25 300);
-
-  --font-sans: "Inter", var(--font-geist-sans), sans-serif;
+  --font-sans: var(--font-outfit), sans-serif;
 }
 
 :root {
+  --background: #ffffff;
+  --foreground: #050505;
+  --card: #f5f5f5;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --accent: #9333ea; /* Purple */
+  --accent-secondary: #0891b2; /* Cyan */
+  --mesh-bg: hsla(0, 0%, 98%, 1);
+  --mesh-1: hsla(253, 40%, 90%, 1);
+  --mesh-2: hsla(225, 40%, 90%, 0.6);
+  --mesh-3: hsla(339, 40%, 90%, 0.6);
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --scrollbar: #ddd;
+  --scrollbar-hover: #ccc;
+}
+
+.dark {
   --background: #050505;
   --foreground: #ffffff;
   --card: #0a0a0a;
   --card-border: rgba(255, 255, 255, 0.1);
   --accent: #a855f7; /* Purple */
   --accent-secondary: #06b6d4; /* Cyan */
+  --mesh-bg: hsla(0, 0%, 2%, 1);
+  --mesh-1: hsla(253, 16%, 7%, 1);
+  --mesh-2: hsla(225, 39%, 30%, 0.1);
+  --mesh-3: hsla(339, 49%, 30%, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --scrollbar: #222;
+  --scrollbar-hover: #333;
 }
 
 @layer base {
@@ -40,25 +60,34 @@
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
   }
 
   .text-gradient {
-    background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .bg-gradient-mesh {
-    background-color: hsla(0, 0%, 2%, 1);
+  .bg-grid-pattern {
+    background-size: 40px 40px;
     background-image: 
-      radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), 
-      radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 0.1) 0, transparent 50%), 
-      radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.1) 0, transparent 50%);
+      linear-gradient(to right, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .bg-gradient-mesh {
+    background-color: var(--mesh-bg);
+    background-image: 
+      radial-gradient(at 0% 0%, var(--mesh-1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, var(--mesh-2) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, var(--mesh-3) 0, transparent 50%);
   }
 }
 
@@ -71,10 +100,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: var(--scrollbar);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: var(--scrollbar-hover);
 }

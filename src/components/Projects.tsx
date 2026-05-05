@@ -39,7 +39,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white/[0.02]">
+    <section id="projects" className="py-24 bg-foreground/[0.02]">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -82,7 +82,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group glass rounded-[2rem] overflow-hidden flex flex-col h-full border-white/5 hover:border-accent/40 transition-all duration-500"
+              className="group glass rounded-[2rem] overflow-hidden flex flex-col h-full border-foreground/5 hover:border-accent/40 transition-all duration-500"
             >
               {/* Image Container */}
               <div className="relative h-64 overflow-hidden">
@@ -93,7 +93,7 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute top-4 right-4 flex gap-2">
-                  <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 border border-white/10">
+                  <span className="px-3 py-1 bg-background/50 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-foreground/80 border border-foreground/10">
                     {project.type}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 bg-white/5 rounded-lg text-[10px] font-medium text-foreground/40 border border-white/5"
+                      className="px-2.5 py-1 bg-foreground/5 rounded-lg text-[10px] font-medium text-foreground/40 border border-foreground/5"
                     >
                       {t}
                     </span>
@@ -124,7 +124,7 @@ export default function Projects() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                <div className="flex items-center gap-4 pt-6 border-t border-foreground/5">
                   <a
                     href={project.link}
                     className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-foreground hover:text-accent transition-colors"
@@ -151,7 +151,7 @@ export default function Projects() {
         >
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-foreground/60 hover:text-white transition-colors text-sm font-semibold group"
+            className="inline-flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors text-sm font-semibold group"
           >
             Explore all projects on GitHub
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

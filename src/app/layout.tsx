@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Outfit, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({
-  variable: "--font-inter",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -30,12 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+      <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} scroll-smooth antialiased`}
+      suppressHydrationWarning
+      className={`${outfit.variable} ${geistMono.variable} scroll-smooth antialiased`}
     >
-      <body className="bg-background text-foreground selection:bg-accent/30">
-        {children}
+      <body className="bg-background text-foreground selection:bg-accent/30 transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
