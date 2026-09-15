@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, CheckCircle2, Star, Zap } from "lucide-react";
 
@@ -29,55 +31,55 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </div>
               <span className="text-sm font-medium text-foreground/80">
-                Your Dedicated Product Engineering Team
+                Freelanzo Solutions • Full-Stack Product Engineering
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.1]">
-              Build & Launch Your Startup in <br className="hidden md:block" />
-              <span className="text-gradient font-extrabold italic">Weeks, Not Months.</span>
+            {/* Headline - H1 with Primary Keywords */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.1]">
+              Freelance Full-Stack Development Services <br className="hidden md:block" />
+              <span className="text-gradient font-extrabold italic">Build & Launch in Weeks.</span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl text-foreground/60 mb-10 leading-relaxed max-w-xl">
-              Stop managing fragmented teams. We provide the end-to-end engineering, scalable architecture, and SaaS expertise you need to turn your vision into a production-ready product.
+              Turn your startup vision into scalable production software. Freelanzo Solutions provides end-to-end full-stack engineering across React, Next.js, Spring Boot, and AWS cloud.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all hover:scale-105 hover:bg-accent/90 shadow-[0_0_60px_-15px_rgba(168,85,247,0.6)] group"
               >
                 Book Free Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#projects"
+              </Link>
+              <Link
+                href="/#projects"
                 className="w-full sm:w-auto px-8 py-4 bg-foreground/5 hover:bg-foreground/10 text-foreground border border-foreground/10 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all group"
               >
                 <Play className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors" />
                 View Projects
-              </a>
+              </Link>
             </div>
 
             {/* Microcopy */}
             <div className="flex items-center gap-2 text-sm text-foreground/50 mb-12 ml-2">
               <CheckCircle2 className="w-4 h-4 text-accent animate-pulse" />
-              <span>Free 15-min call. No commitment.</span>
+              <span>Free 15-min consultation. Zero commitment.</span>
             </div>
 
             {/* Trust Signals */}
             <div className="pt-8 border-t border-foreground/10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm font-medium text-foreground/60">
               <div className="flex items-center gap-2">
                 <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                <span>10+ Projects Delivered</span>
+                <span>10+ SaaS Projects Shipped</span>
               </div>
               <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
               <div>Full Stack Expertise</div>
               <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/20" />
-              <div className="text-foreground/40">React • Spring Boot • AWS</div>
+              <div className="text-foreground/40">React • Next.js • Spring Boot • AWS</div>
             </div>
           </motion.div>
 
@@ -88,8 +90,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:ml-10 perspective-[2000px]"
           >
-            {/* Mockup Container with 3D feel */}
-            <div className="relative rounded-2xl overflow-hidden border border-foreground/10 shadow-[0_0_80px_-20px_rgba(168,85,247,0.4)] glass transform-gpu transition-transform hover:rotate-y-[5deg] hover:rotate-x-[5deg] duration-500 group-hover:shadow-[0_0_100px_-20px_rgba(168,85,247,0.6)]">
+            {/* Mockup Container */}
+            <div className="relative rounded-2xl overflow-hidden border border-foreground/10 shadow-[0_0_80px_-20px_rgba(168,85,247,0.4)] glass transform-gpu transition-transform hover:rotate-y-[5deg] hover:rotate-x-[5deg] duration-500">
               {/* Fake Browser Header */}
               <div className="bg-background/80 backdrop-blur-md border-b border-foreground/10 px-4 py-3 flex items-center gap-2">
                 <div className="flex gap-1.5">
@@ -98,23 +100,25 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
                 <div className="ml-4 px-3 py-1 rounded-md bg-foreground/5 text-xs text-foreground/40 font-mono w-48 truncate">
-                  app.freelanzosolutions.com
+                  freelanzosolutions.com
                 </div>
               </div>
 
-              {/* Image */}
+              {/* Next.js Image with LCP priority */}
               <div className="relative aspect-[1/1] sm:aspect-[4/3] w-full bg-black/50">
-                <img
+                <Image
                   src="/images/saas-dashboard.png"
-                  alt="SaaS Dashboard Interface"
-                  className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+                  alt="SaaS Web Application Showcase by Freelanzo Solutions - Full Stack Development"
+                  width={800}
+                  height={600}
+                  priority
+                  className="w-full h-full object-cover object-top opacity-90"
                 />
-                {/* Overlay gradient for extra premium feel */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-accent-secondary/10 pointer-events-none" />
               </div>
             </div>
 
-            {/* Floating decorative elements */}
+            {/* Floating badge */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -125,8 +129,8 @@ export default function Hero() {
                   <Zap className="w-5 h-5 text-green-500" />
                 </div>
                 <div>
-                  <div className="text-xs text-foreground/60 font-medium">Performance</div>
-                  <div className="text-sm font-bold text-foreground">99.9% Uptime</div>
+                  <div className="text-xs text-foreground/60 font-medium">Core Web Vitals</div>
+                  <div className="text-sm font-bold text-foreground">99+ Lighthouse Score</div>
                 </div>
               </div>
             </motion.div>

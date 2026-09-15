@@ -2,15 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Blog", href: "/blog" },
+  { name: "FAQ", href: "/faq" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -41,12 +44,15 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group" title="Freelanzo Solutions Homepage">
           <div className="bg-white/90 p-1.5 rounded-lg transition-transform group-hover:scale-105">
-            <img
+            <Image
               src="/images/logo.jpeg"
-              alt="Freelanzo Solutions"
+              alt="Freelanzo Solutions Logo - Freelance Development Agency"
+              width={40}
+              height={40}
               className="h-10 w-auto object-contain"
+              priority
             />
           </div>
           <span className="text-xl font-bold tracking-tight">
@@ -68,14 +74,14 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 text-foreground/70 hover:text-accent rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors"
-              aria-label="Toggle theme"
+              className="p-2 text-foreground/70 hover:text-accent rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors cursor-pointer"
+              aria-label="Toggle light and dark theme"
             >
               {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
           )}
           <Link
-            href="#contact"
+            href="/contact"
             className="px-5 py-2.5 bg-accent hover:bg-accent/90 text-white rounded-full text-sm font-semibold transition-all hover:scale-105 active:scale-95"
           >
             Request a Demo
@@ -88,14 +94,15 @@ export default function Navbar() {
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 text-foreground/70 hover:text-accent rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors"
-              aria-label="Toggle theme"
+              aria-label="Toggle light and dark theme"
             >
               {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
           )}
           <button
-            className="text-foreground"
+            className="text-foreground p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -117,13 +124,13 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-foreground/70"
+                  className="text-lg font-medium text-foreground/70 hover:text-accent"
                 >
                   {link.name}
                 </Link>
               ))}
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3 bg-accent text-white rounded-xl text-center font-semibold"
               >
